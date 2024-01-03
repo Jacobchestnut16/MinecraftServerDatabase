@@ -1,8 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft Server Manager</title>
+</head>
+<body>
+
+<h1>Minecraft Servers</h1>
 <?php
     //<!--Include the database connection code here-->
-    $servername = "your_database_host";
-    $username = "your_username";
-    $password = "your_password";
+    $servername = "localhost";
+    $username = "jchestnut";
+    $password = "Spicyleaf82";
     $dbname = "minecraft_servers";
 
     //<!--Create connection-->
@@ -35,3 +44,31 @@
     //<!--Close the database connection-->
     $conn->close();
 ?>
+
+<!-- Button to trigger the form -->
+<button onclick="showForm()">Add New Server</button>
+
+<!-- Form to add a new server -->
+<div id="addServerForm" style="display: none;">
+    <form action="add_server.php" method="post">
+        <label for="serverName">Server Name:</label>
+        <input type="text" name="serverName" required>
+        <br>
+
+        <label for="ipAddress">IP Address:</label>
+        <input type="text" name="ipAddress" required>
+        <br>
+
+        <!-- Add more fields as needed -->
+
+        <input type="submit" value="Add Server">
+    </form>
+</div>
+
+<script>
+    function showForm() {
+        document.getElementById("addServerForm").style.display = "block";
+    }
+</script>
+</body>
+</html>
